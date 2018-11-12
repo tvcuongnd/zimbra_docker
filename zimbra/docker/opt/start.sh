@@ -142,6 +142,9 @@ cd /opt/zimbra-install/zcs-* && ./install.sh -s < /opt/zimbra-install/installZim
 echo "Installing Zimbra Collaboration injecting the configuration"
 /opt/zimbra/libexec/zmsetup.pl -c /opt/zimbra-install/installZimbraScript
 
+echo "remove setup file zimbra"
+rm -rf /opt/zimbra-install/zcs-*
+
 su - zimbra -c 'zmcontrol restart'
 su - zimbra -c 'zmprov ms `zmhostname` -zimbraServiceEnabled antispam'
 su - zimbra -c 'zmprov ms `zmhostname` -zimbraServiceEnabled antivirus'
